@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Төле би профилі - ТарихGram</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+<!-- Навигация -->
+<div class="flex items-center justify-between p-4 bg-white shadow-md mb-4">
+  <a href="index.html" class="text-blue-600 font-semibold hover:underline">← Қайту</a>
+  <h1 class="text-2xl font-bold">Төле би профилі</h1>
+  <div></div>
+</div>
+
+<!-- Профиль хедер -->
+<div class="flex items-center justify-between p-4 bg-white shadow-md mb-4">
+  <div class="flex items-center space-x-4">
+    <img src="https://avatars.mds.yandex.net/get-entity_search/2305551/962857741/S600xU_2x" alt="Төле би" class="w-20 h-20 rounded-full border">
+    <div>
+      <h1 class="text-2xl font-bold">Төле би</h1>
+      <p class="text-gray-600">Даналығы: XVII–XVIII ғғ.</p>
+    </div>
+  </div>
+  <div class="text-right">
+    <p class="text-gray-600 text-sm">980 жазылушы</p>
+  </div>
+</div>
+
+<!-- Посттар -->
+<main class="max-w-2xl mx-auto mt-6 space-y-6 px-4 pb-20">
+  <!-- Пост -->
+  <article class="bg-white rounded-2xl shadow-md overflow-hidden post" data-post-id="1">
+    <div class="px-4 py-3">
+      <!-- Лайк және комментарий статистикасы -->
+      <div class="flex items-center space-x-4 text-xl mb-2">
+        <button class="like-btn">❤️</button>
+        <span class="like-count text-gray-700">0 лайк</span>
+        <span class="comment-count text-gray-700">0 коммент</span>
+      </div>
+
+      <img src="https://muslim.kz/img/articles/0913a4d7886557bf0cc8faabfbb77fe6.jpg" alt="Төле би пост суреті" class="w-full object-cover mb-3">
+
+      <p class="mb-3 text-gray-800">
+        Халқым! Елдің күші – жерінде емес, жүрегінде. Жеріміз кең, бірақ бірлігіміз одан да кең болуы керек.
+        Татулық бар жерде – береке бар, бірлік бар жерде – тірлік бар.
+        Біз – қазақпыз! Рухымызды асқақ ұстайық, ұрпаққа аманат болар елдікті сақтайық. Болашағымызды бірге жасайық!
+      </p>
+
+      <!-- Комментарии -->
+      <div class="space-y-2">
+        <h4 class="font-semibold">Пікірлер:</h4>
+        <ul class="comment-list list-disc pl-5 text-sm text-gray-700"></ul>
+        <p class="view-all text-blue-600 text-sm cursor-pointer"></p>
+        <div class="flex space-x-2 mt-1">
+          <input type="text" placeholder="Комментарий жаз..." class="comment-input flex-1 border rounded-lg px-2 py-1">
+          <button class="comment-btn bg-blue-600 text-white px-3 rounded-lg">Жазу</button>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+
+<script>
+const currentUser = "Еділ Наурызбек & Жауған Алдияр";
+
+const POSTS = {
+  1: {
+    likes: 65,
+    liked: false,
+    commentsAll: [
+      { author: "Қазыбек би", text: "Дәл айттың, Төле би! Жүрегіміз бір болса – бізді ешбір дауыл шайқалта алмайды!" },
+      { author: "Әйтеке би", text: "Бірлігі мықты елді ешқандай жау жеңбейді! Біз – асқар таудай халықпыз!" },
+      { author: "Абылай хан", text: "Бұл үндеу – халықтың рухын көтеретін ұран! Алға, қазақ елі, асқақ рухпен!" }
+    ],
+    displayedCount: 9,
+    firstVisibleCount: 2
+  }
+};
+
+document.querySelectorAll('.post').forEach(postEl => {
+  const id = postEl.getAttribute('data-post-id');
+  const cfg = POSTS[id];
+
+  const likeBtn = postEl.querySelector('.like-btn');
+  const likeCountSpan = postEl.querySelector('.like-count');
+  const commentCountSpan = postEl.querySelector('.comment-count');
+  const commentListEl = postEl.querySelector('.comment-list');
+  const viewAllEl = postEl.querySelector('.view-all');
+  const commentInput = postEl.querySelector('.comment-input');
+  const commentBtn = postEl.querySelector('.comment-btn');
+
+  // like
+  likeCountSpan.textContent = cfg.likes + " лайк";
+  likeBtn.addEventListener('click', () => {
+    cfg.liked = !cfg.liked;
+    cfg.likes += cfg.liked ? 1 : -1;
+    likeBtn.classList.toggle('text-red-500', cfg.liked);
+    likeCountSpan.textContent = cfg.likes + " лайк";
+  });
+
+  // update comment count
+  function updateCommentCount() {
+    commentCountSpan.textContent = cfg.displayedCount + " коммент";
+  }
+
+  // render comments
+  function renderComments(showAll = false) {
+    commentListEl.innerHTML = "";
+    const toShow = showAll ? cfg.commentsAll : cfg.commentsAll.slice(0, cfg.firstVisibleCount);
+    toShow.forEach(c => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span class="font-semibold">${c.author}:</span> ${c.text}`;
+      commentListEl.appendChild(li);
+    });
+
+    if (!showAll) {
+      viewAllEl.textContent = `Барлық ${cfg.displayedCount} пікірді көру...`;
+    } else {
+      viewAllEl.textContent = "Жасыру";
+    }
+
+    updateCommentCount();
+  }
+
+  // init render
+  let expanded = false;
+  renderComments(expanded);
+
+  viewAllEl.addEventListener('click', () => {
+    expanded = !expanded;
+    renderComments(expanded);
+  });
+
+  commentBtn.addEventListener('click', () => {
+    const text = commentInput.value.trim();
+    if (!text) return;
+    cfg.commentsAll.unshift({ author: currentUser, text });
+    cfg.displayedCount++;
+    commentInput.value = "";
+    renderComments(expanded);
+  });
+});
+</script>
+</body>
+</html>

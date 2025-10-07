@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ТарихGram</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Навбар -->
+  <header class="bg-white shadow-md sticky top-0 z-10">
+    <div class="max-w-2xl mx-auto flex justify-between items-center px-4 py-3">
+      <h1 class="text-2xl font-bold text-blue-800">Тарих<span class="text-red-600">Gram</span></h1>
+      <div class="flex items-center space-x-4">
+        <span class="font-semibold text-gray-700 text-sm">Еділ Наурызбек &amp; Жауған Алдияр</span>
+        <!-- Аудио плеер -->
+        <audio id="bg-music" controls class="w-32">
+          <source src="мен қазақпын.mp3" type="audio/mpeg">
+          Браузер аудио қолдамайды.
+        </audio>
+      </div>
+    </div>
+  </header>
+
+  <!-- Feed -->
+  <main id="feed" class="max-w-2xl mx-auto mt-6 space-y-6 px-4 pb-20">
+
+    <!-- Пост 1: Қасым хан -->
+    <article class="bg-white rounded-2xl shadow-md overflow-hidden post" data-post-id="1">
+      <div class="flex items-center px-4 py-3 border-b">
+        <a href="Kasymhan.html" class="flex items-center space-x-3">
+          <img src="https://avatars.mds.yandex.net/get-entity_search/1978677/1174212571/S600xU_2x" alt="Қасым хан" class="w-10 h-10 rounded-full border">
+          <span class="font-semibold">Қасым хан</span>
+        </a>
+      </div>
+
+      <img src="https://e-history.kz/upload/medialibrary/f72/f7272c5a4644741cc20085ec0a21a615.jpg" alt="Қасым хан пост суреті" class="w-full object-cover">
+
+      <div class="px-4 py-3">
+        <div class="flex items-center space-x-4 text-xl mb-2">
+          <button class="like-btn">❤️</button>
+          <span class="like-count text-gray-700">42 лайк</span>
+          <span class="comment-count text-gray-700">24 коммент</span>
+        </div>
+
+        <p class="mb-3 text-gray-800">Қазақ халқының саны 1 миллионға жетті! Бұл – бабалар арманын жалғаған ұлы жеңіс. Бірлігіміз бекем, рухымыз биік болса – мемлекетіміздің қуаты арта береді. Көбейген халық – күшейген ел!</p>
+
+        <!-- Комментарии -->
+        <div class="space-y-2">
+          <h4 class="font-semibold">Пікірлер:</h4>
+          <ul class="comment-list list-disc pl-5 text-sm text-gray-700"></ul>
+          <p class="view-all text-blue-600 text-sm cursor-pointer"></p>
+          <div class="flex space-x-2 mt-1">
+            <input type="text" placeholder="Пікір қалдыр..." class="comment-input flex-1 border rounded-lg px-2 py-1">
+            <button class="comment-btn bg-blue-600 text-white px-3 rounded-lg">Жазу</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Пост 2: Абылай хан -->
+    <article class="bg-white rounded-2xl shadow-md overflow-hidden post" data-post-id="2">
+      <div class="flex items-center px-4 py-3 border-b">
+        <a href="Abylaihan.html" class="flex items-center space-x-3">
+          <img src="https://avatars.mds.yandex.net/get-entity_search/10844871/1152437772/S600xU_2x" alt="Абылай хан" class="w-10 h-10 rounded-full border">
+          <span class="font-semibold">Абылай хан</span>
+        </a>
+      </div>
+
+      <img src="https://ognialatau.kz/uploads/news/14440/news14440.jpg" alt="Абылай хан пост суреті" class="w-full object-cover">
+
+      <div class="px-4 py-3">
+        <div class="flex items-center space-x-4 text-xl mb-2">
+          <button class="like-btn">❤️</button>
+          <span class="like-count text-gray-700">87 лайк</span>
+          <span class="comment-count text-gray-700">12 коммент</span>
+        </div>
+
+        <p class="mb-3 text-gray-800">Жұртым, басы қосылмаған елді жау табанға салады. Бірлік болса – жеңіс те, ерлік те біздің қолымызда. Жоңғарға қарсы аттанарда сендерді бір тудың астына жинадым. Қазақтың күші – елдің ынтымағында. Біз біріксек – ешбір дұшпанға бас имейміз.</p>
+
+        <!-- Комментарии -->
+        <div class="space-y-2">
+          <h4 class="font-semibold">Пікірлер:</h4>
+          <ul class="comment-list list-disc pl-5 text-sm text-gray-700"></ul>
+          <p class="view-all text-blue-600 text-sm cursor-pointer"></p>
+          <div class="flex space-x-2 mt-1">
+            <input type="text" placeholder="Пікір қалдыр..." class="comment-input flex-1 border rounded-lg px-2 py-1">
+            <button class="comment-btn bg-blue-600 text-white px-3 rounded-lg">Жазу</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Пост 3: Төле би -->
+    <article class="bg-white rounded-2xl shadow-md overflow-hidden post" data-post-id="3">
+      <div class="flex items-center px-4 py-3 border-b">
+        <a href="toleby.html" class="flex items-center space-x-3">
+          <img src="https://avatars.mds.yandex.net/get-entity_search/2305551/962857741/S600xU_2x" alt="Төле би" class="w-10 h-10 rounded-full border">
+          <span class="font-semibold">Төле би</span>
+        </a>
+      </div>
+
+      <!-- Картинка поста -->
+      <img src="https://muslim.kz/img/articles/0913a4d7886557bf0cc8faabfbb77fe6.jpg" alt="Төле би пост суреті" class="w-full object-cover">
+
+      <div class="px-4 py-3">
+        <div class="flex items-center space-x-4 text-xl mb-2">
+          <button class="like-btn">❤️</button>
+          <span class="like-count text-gray-700">65 лайк</span>
+          <span class="comment-count text-gray-700">9 коммент</span>
+        </div>
+
+        <p class="mb-3 text-gray-800">Халқым! Елдің күші – жерінде емес, жүрегінде. Жеріміз кең, бірақ бірлігіміз одан да кең болуы керек.
+        Татулық бар жерде – береке бар, бірлік бар жерде – тірлік бар.
+        Біз – қазақпыз! Рухымызды асқақ ұстайық, ұрпаққа аманат болар елдікті сақтайық. Болашағымызды бірге жасайық!</p>
+
+        <!-- Комментарии -->
+        <div class="space-y-2">
+          <h4 class="font-semibold">Пікірлер:</h4>
+          <ul class="comment-list list-disc pl-5 text-sm text-gray-700"></ul>
+          <p class="view-all text-blue-600 text-sm cursor-pointer"></p>
+          <div class="flex space-x-2 mt-1">
+            <input type="text" placeholder="Пікір қалдыр..." class="comment-input flex-1 border rounded-lg px-2 py-1">
+            <button class="comment-btn bg-blue-600 text-white px-3 rounded-lg">Жазу</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Script -->
+  <script>
+    const currentUser = "Еділ Наурызбек & Жауған Алдияр";
+
+    const POSTS = {
+      1: {
+        likes: 42,
+        liked: false,
+        commentsAll: [
+      { author: "Төле би", text: "Бұл – қазақ елінің қуаты мен болашағы! Халық көбейген сайын, мемлекетіміздің іргесі беки береді." },
+      { author: "Жырау", text: "Бұл ұлы жеңіс!" },
+      { author: "Тарихшы", text: "Қасым ханның дәуірі шынында ерекше." },
+      { author: "Аноним", text: "Қазақ хандығы жасасын!" },
+      { author: "Қазыбек би", text: "Бірлік болса – тірлік бар. Бүгінгі жетістік – ертеңгі ұрпаққа мұра." },
+      { author: "Әйтеке би", text: "Қуатты елдің туы ешқашан құламайды. Халықтың артуы – ұлы жеңіс!" },
+      { author: "Қобыланды батыр", text: "Жаудың қылышын көп қол бөгейді. Көбейген елдің айбынын ешкім баса алмайды!" }
+    ],
+        displayedCount: 24,
+        firstVisibleCount: 2
+      },
+      2: {
+        likes: 87,
+        liked: false,
+        commentsAll: [
+      { author: "Төле би", text: "Ханның елді бірлікке шақырғаны – халқымыздың болашағын бекітетін жол." },
+      { author: "Қазыбек би", text: "Бірлік бар жерде, тізе бүкпейтін халық бар. Абылайдың сөзі – соның дәлелі." },
+      { author: "Қабанбай батыр", text: "Ханның туының астында аттансақ, жауға қазақтың қайраты да, айбары да жетеді." },
+      { author: "Бөгенбай батыр", text: "Абылайдың соңынан ерген елді ешбір дұшпан жеңе алмайды." },
+      { author: "Аноним", text: "Ұлы даланың қаһарманы!" },
+      { author: "Тарихшы", text: "Абылайдың жорықтары маңызды." }
+    ],
+        displayedCount: 12,
+        firstVisibleCount: 2
+      },
+      3: {
+        likes: 65,
+        liked: false,
+        commentsAll: [
+          { author: "Қазыбек би", text: "Дәл айттың, Төле би! Жүрегіміз бір болса – бізді ешбір дауыл шайқалта алмайды!" },
+          { author: "Әйтеке би", text: "Бірлігі мықты елді ешқандай жау жеңбейді! Біз – асқар таудай халықпыз!" },
+          { author: "Абылай хан", text: "Бұл үндеу – халықтың рухын көтеретін ұран! Алға, қазақ елі, асқақ рухпен!" }
+        ],
+        displayedCount: 9,
+        firstVisibleCount: 2
+      }
+    };
+
+    document.querySelectorAll('.post').forEach(postEl => {
+      const id = postEl.getAttribute('data-post-id');
+      const cfg = POSTS[id];
+
+      const likeBtn = postEl.querySelector('.like-btn');
+      const likeCountSpan = postEl.querySelector('.like-count');
+      const commentCountSpan = postEl.querySelector('.comment-count');
+      const commentListEl = postEl.querySelector('.comment-list');
+      const viewAllEl = postEl.querySelector('.view-all');
+      const commentInput = postEl.querySelector('.comment-input');
+      const commentBtn = postEl.querySelector('.comment-btn');
+
+      // like
+      likeCountSpan.textContent = cfg.likes + " лайк";
+      likeBtn.addEventListener('click', () => {
+        cfg.liked = !cfg.liked;
+        cfg.likes += cfg.liked ? 1 : -1;
+        likeBtn.classList.toggle('text-red-500', cfg.liked);
+        likeCountSpan.textContent = cfg.likes + " лайк";
+      });
+
+      // update comment count
+      function updateCommentCount() {
+        commentCountSpan.textContent = cfg.displayedCount + " коммент";
+      }
+
+      // render comments
+      function renderComments(showAll = false) {
+        commentListEl.innerHTML = "";
+        const toShow = showAll ? cfg.commentsAll : cfg.commentsAll.slice(0, cfg.firstVisibleCount);
+        toShow.forEach(c => {
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="font-semibold">${c.author}:</span> ${c.text}`;
+          commentListEl.appendChild(li);
+        });
+
+        if (!showAll) {
+          viewAllEl.textContent = `Барлық ${cfg.displayedCount} пікірді көру...`;
+        } else {
+          viewAllEl.textContent = "Жасыру";
+        }
+
+        updateCommentCount();
+      }
+
+      // init render
+      let expanded = false;
+      renderComments(expanded);
+
+      viewAllEl.addEventListener('click', () => {
+        expanded = !expanded;
+        renderComments(expanded);
+      });
+
+      commentBtn.addEventListener('click', () => {
+        const text = commentInput.value.trim();
+        if (!text) return;
+        cfg.commentsAll.unshift({ author: currentUser, text });
+        cfg.displayedCount++;
+        commentInput.value = "";
+        renderComments(expanded);
+      });
+    });
+  </script>
+</body>
+</html>
